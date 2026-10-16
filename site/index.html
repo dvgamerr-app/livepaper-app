@@ -745,5 +745,18 @@ go build -tags production -o bin/livepaper.exe ./cmd/livepaper</pre>
         </p>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@tracewayapp/frontend@1.2.1/dist/traceway.iife.global.js"></script>
+    <script>
+      // Replaced with PUBLIC_TRACEWAY_DSN by the Pages workflow; stays a no-op locally.
+      ;(function () {
+        var dsn = '__PUBLIC_TRACEWAY_DSN__'
+        if (!dsn || dsn.indexOf('__') === 0 || !window.Traceway) return
+        try {
+          window.Traceway.init(dsn, { recordAllSessions: true })
+        } catch (e) {
+          console.warn('Traceway disabled:', e && e.message)
+        }
+      })()
+    </script>
   </body>
 </html>
