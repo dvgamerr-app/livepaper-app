@@ -2,11 +2,11 @@ package wallpaper
 
 import (
 	"fmt"
+	_ "golang.org/x/image/webp"
 	"image"
 	"image/draw"
 	"image/jpeg"
 	_ "image/png"
-	_ "golang.org/x/image/webp"
 	"os"
 	"path/filepath"
 

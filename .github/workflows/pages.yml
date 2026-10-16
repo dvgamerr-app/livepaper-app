@@ -25,6 +25,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
+      - name: Inject Traceway DSN
+        env:
+          PUBLIC_TRACEWAY_DSN: ${{ secrets.PUBLIC_TRACEWAY_DSN }}
+        run: |
+          if [ -n "$PUBLIC_TRACEWAY_DSN" ]; then
+            sed -i "s|__PUBLIC_TRACEWAY_DSN__|$PUBLIC_TRACEWAY_DSN|" site/index.html
+          fi
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
