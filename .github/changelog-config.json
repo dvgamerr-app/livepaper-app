@@ -16,6 +16,6 @@
     { "pattern": "^build(\\(.+\\))?[!:]", "target": "build" },
     { "pattern": "^ci(\\(.+\\))?[!:]", "target": "ci" }
   ],
-  "commit_template":"- ${{TITLE}} (${{MERGE_SHA}})",
+  "commit_template": "- ${{TITLE}} (${{MERGE_SHA}})",
   "template": "${{CHANGELOG}}\n\n**Full Changelog**: ${{RELEASE_DIFF}}"
 }
